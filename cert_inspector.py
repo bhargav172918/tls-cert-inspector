@@ -81,7 +81,7 @@ def run_check():
             days_left = get_cert_expiry_days(domain)
             print(f"[OK] {domain}: {days_left} days remaining")
             
-            if days_left <= 100:
+            if days_left <= WARNING_THRESHOLD_DAYS:
                 send_teams_alert(domain, days_left)
                 
         except Exception as e:
